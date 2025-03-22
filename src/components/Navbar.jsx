@@ -1,7 +1,7 @@
 const Navbar = () => {
   return (
     <>
-      <div className="navbar text-[#FF5A5F] bg-[#F3F4F6] shadow-sm p-5 mb-15">
+      <div className="navbar text-[#FF5A5F] bg-[#F3F4F6] shadow-sm p-5 md:mb-15">
         <div className="flex-1">
           <a className="btn btn-ghost text-xl hover:bg-[#4C5FD5] hover:text-[#FF5A5F]">
             DevTinder🔥
