@@ -22,12 +22,11 @@ const Login = () => {
         { emailId, password },
         { withCredentials: true }
       );
-      dispatch(addUser(res.data.user));
-      console.log(res.data.user);
+      dispatch(addUser(res?.data?.user));
       return navigate("/");
     } catch (error) {
       if (error.response) {
-        setError(error.response.data);
+        setError(error?.response?.data);
       }
     }
   };
