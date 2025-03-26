@@ -15,7 +15,7 @@ const EditProfile = ({ user }) => {
   const [about, setAbout] = useState(user.about);
   const [skills, setSkills] = useState(user.skills);
   const [error, setError] = useState("");
-  const [success, setSuccess] = useState(false);
+  const [toster, setToaster] = useState(false);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -28,10 +28,10 @@ const EditProfile = ({ user }) => {
         { withCredentials: true }
       );
       dispatch(addUser(res?.data?.user));
-      setSuccess(true);
+      setToaster(true);
 
       setTimeout(() => {
-        setSuccess(false);
+        setToaster(false);
         navigate("/");
       }, 3000);
     } catch (error) {
@@ -97,18 +97,18 @@ const EditProfile = ({ user }) => {
                   onChange={(e) => setGender(e.target.value)}
                 />
               </div>
-              <div className="flex flex-col">
-                <label className="fieldset-label text-sm md:text-base mb-2">
-                  Image URL
-                </label>
-                <input
-                  type="url"
-                  className="input w-full  focus:outline-none text-sm md:text-base"
-                  placeholder="Image URL"
-                  value={photoUrl}
-                  onChange={(e) => setPhotoUrl(e.target.value)}
-                />
-              </div>
+            </div>
+            <div className="flex flex-col">
+              <label className="fieldset-label text-sm md:text-base mb-2">
+                Image URL
+              </label>
+              <input
+                type="url"
+                className="input w-full  focus:outline-none text-sm md:text-base"
+                placeholder="Image URL"
+                value={photoUrl}
+                onChange={(e) => setPhotoUrl(e.target.value)}
+              />
             </div>
             <div className="flex flex-col">
               <label className="fieldset-label text-sm md:text-base mb-2">
@@ -155,7 +155,7 @@ const EditProfile = ({ user }) => {
           }}
         />
       </div>
-      {success && (
+      {toster && (
         <div className="toast toast-top">
           <div className="alert alert-info">
             <span>Profile Saved Successfully 📝</span>
