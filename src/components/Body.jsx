@@ -33,10 +33,10 @@ const Body = () => {
   }, []);
 
   return (
-    <>
+    <div className="font-winky">
       <Navbar />
       <Outlet />
-    </>
+    </div>
   );
 };
 
