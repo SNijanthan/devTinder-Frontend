@@ -1,7 +1,27 @@
+import axios from "axios";
 import React from "react";
+import { BASE_URL } from "../utils/constants";
+import { useDispatch } from "react-redux";
+import { removeFeed } from "../utils/feedSlice";
 
 const UserCard = ({ user }) => {
-  const { photoUrl, firstName, lastName, age, about, skills, gender } = user;
+  const dispatch = useDispatch();
+  const { _id, photoUrl, firstName, lastName, age, about, skills, gender } =
+    user;
+
+  const handleSendRequest = async (status, _id) => {
+    try {
+      await axios.post(
+        BASE_URL + "/request/send" + "/" + status + "/" + _id,
+        {},
+        { withCredentials: true }
+      );
+      dispatch(removeFeed(_id));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       <div className="card m-auto mt-5 shadow-2xl max-w-xl">
@@ -20,8 +40,22 @@ const UserCard = ({ user }) => {
           {skills.length !== 0 && <p>{skills}</p>}
           {about && <p className="mb-2">{about}</p>}
           <div className="card-actions flex items-center justify-between mx-15 mb-3">
-            <button className="btn btn-success px-8 py-5">Interest</button>
-            <button className="btn btn-warning px-8 py-5">Ignore</button>
+            <button
+              className="btn btn-success px-8 py-5"
+              onClick={() => {
+                handleSendRequest("interested", _id);
+              }}
+            >
+              Interest
+            </button>
+            <button
+              className="btn btn-warning px-8 py-5"
+              onClick={() => {
+                handleSendRequest("ignored", _id);
+              }}
+            >
+              Ignore
+            </button>
           </div>
         </div>
       </div>

@@ -34,7 +34,7 @@ const Connections = () => {
   }
 
   return (
-    <div className="mt-5 w-3/6 m-auto">
+    <div className="mt-5">
       <h1 className="text-4xl text-center my-3 font-light text-emerald-800">
         CONNECTIONS
       </h1>
@@ -44,22 +44,22 @@ const Connections = () => {
         return (
           <div
             key={connection._id}
-            className="bg-gray-100 flex items-center justify-around mb-5 p-3 rounded-xl"
+            className="bg-gray-200 flex items-center justify-around p-8 rounded-xl w-4/6 m-auto my-5"
           >
             <div>
               <div className="bg-gray-200 rounded-full ">
                 <img
                   src={photoUrl}
                   alt="image"
-                  className="w-40 h-40 rounded-full object-contain"
+                  className="w-30 h-30 rounded-full object-cover"
                 />
               </div>
             </div>
-            <div>
-              <p>{firstName + " " + lastName}</p>
-              {age && gender && <p>{age + " " + gender}</p>}
-              {about && <p>{about}</p>}
-              {skills && <p>{skills}</p>}
+            <div className="text-center px-4 flex-1">
+              <p className="my-1">{firstName + " " + lastName}</p>
+              {age && gender && <p className="my-1">{age + " " + gender}</p>}
+              {about && <p className="my-1 w-[42rem] m-auto">{about}</p>}
+              {skills && <p className="my-1">{skills}</p>}
             </div>
           </div>
         );

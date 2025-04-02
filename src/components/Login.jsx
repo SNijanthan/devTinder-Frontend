@@ -7,8 +7,8 @@ import { addUser } from "../utils/userSlice";
 import { BASE_URL } from "../utils/constants";
 
 const Login = () => {
-  const [emailId, setEmailId] = useState("cha378@gmail.com");
-  const [password, setPassword] = useState("Chaa@123");
+  const [emailId, setEmailId] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
   const dispatch = useDispatch();
@@ -60,7 +60,7 @@ const Login = () => {
         <button className="btn bg-green-600 mt-2 py-6" onClick={handleLogin}>
           Login
         </button>
-        <div className="px-5 py-2">
+        <div className="px-5 py-2 flex items-center justify-between">
           <p>
             New user ?{" "}
             <Link

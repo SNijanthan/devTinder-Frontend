@@ -57,19 +57,19 @@ const Requests = () => {
         return (
           <div
             key={request._id}
-            className="bg-gray-200 flex items-center justify-around py-8 rounded-xl w-4/6 m-auto"
+            className="bg-gray-200 flex items-center justify-around p-8 rounded-xl w-4/6 m-auto my-5"
           >
             <div>
               <img
                 src={photoUrl}
                 alt="image"
-                className="w-20 h-20 rounded-full object-cover"
+                className="w-30 h-30 rounded-full object-cover"
               />
             </div>
             <div className="text-center px-4 flex-1">
               <p className="my-1">{firstName + " " + lastName}</p>
               {age && gender && <p className="my-1">{age + ", " + gender}</p>}
-              {about && <p className="my-1">{about}</p>}
+              {about && <p className="my-1 w-[25rem] m-auto">{about}</p>}
               {skills && <p className="my-1">{skills}</p>}
             </div>
             <div className="flex">
