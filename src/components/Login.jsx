@@ -7,6 +7,7 @@ import { addUser } from "../utils/userSlice";
 import { BASE_URL } from "../utils/constants";
 
 const Login = () => {
+  
   const [emailId, setEmailId] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -30,6 +31,7 @@ const Login = () => {
       }
     }
   };
+
   return (
     <div className="sm:w-1/6 text-xl md:w-3/6 md:mt-20 lg:w-2/6 sm:m-auto md:p-5 bg-gray-300  rounded-box">
       <fieldset className="fieldset w-full p-4 rounded-box">

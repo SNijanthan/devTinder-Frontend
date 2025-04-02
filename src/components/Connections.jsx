@@ -12,7 +12,6 @@ const Connections = () => {
       const res = await axios.get(BASE_URL + "/user/connections", {
         withCredentials: true,
       });
-      console.log(res?.data);
       dispatch(addConnection(res?.data?.data));
     } catch (error) {
       console.log(error);
@@ -57,7 +56,7 @@ const Connections = () => {
             </div>
             <div className="text-center px-4 flex-1">
               <p className="my-1">{firstName + " " + lastName}</p>
-              {age && gender && <p className="my-1">{age + " " + gender}</p>}
+              {age && gender && <p className="my-1">{age + ", " + gender}</p>}
               {about && <p className="my-1 w-[42rem] m-auto">{about}</p>}
               {skills && <p className="my-1">{skills}</p>}
             </div>
