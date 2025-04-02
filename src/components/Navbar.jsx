@@ -38,6 +38,11 @@ const Navbar = () => {
             </Link>
           )}
         </div>
+        {user && (
+          <p className="-mr-5 text-purple-700">
+            Hello, {user.firstName + " " + user.lastName}☺️
+          </p>
+        )}
         <div className="flex gap-2">
           {user && (
             <div className="dropdown dropdown-end">

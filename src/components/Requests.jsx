@@ -26,10 +26,15 @@ const Requests = () => {
 
   if (!requests) return;
 
-  if (requests.length === 0) return <h1>No Requests Found</h1>;
+  if (requests.length === 0)
+    return (
+      <h1 className="text-center text-2xl mt-10 text-red-600">
+        No Requests Found..!
+      </h1>
+    );
 
   return (
-    <div className="mt-5 w-1/2 m-auto">
+    <div className="mt-5">
       <h1 className="text-4xl text-center my-3 font-bold text-emerald-800">
         CONNECTION REQUESTS
       </h1>
@@ -39,20 +44,24 @@ const Requests = () => {
         return (
           <div
             key={request._id}
-            className="bg-gray-100 flex items-center justify-around mb-5 p-3 rounded-xl"
+            className="bg-gray-200 flex items-center justify-evenly p-8 rounded-xl w-4/6 m-auto"
           >
             <div>
               <img
                 src={photoUrl}
                 alt="image"
-                className="w-20 h-20 rounded-full object-contain"
+                className="w-20 h-20 rounded-full object-cover"
               />
             </div>
             <div>
-              <p>{firstName + " " + lastName}</p>
-              {age && gender && <p>{age + " " + gender}</p>}
-              {about && <p>{about}</p>}
-              {skills && <p>{skills}</p>}
+              <p className="my-1">{firstName + " " + lastName}</p>
+              {age && gender && <p className="my-1">{age + ", " + gender}</p>}
+              {about && <p className="my-1">{about}</p>}
+              {skills && <p className="my-1">{skills}</p>}
+            </div>
+            <div className="flex">
+              <button className="btn btn-success mx-4">Interest</button>
+              <button className="btn btn-warning mx-4">Ignore</button>
             </div>
           </div>
         );
