@@ -5,14 +5,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { addConnection } from "../utils/connectionSlice";
 
 const Connections = () => {
-  const connectios = useSelector((store) => store.connection);
+  const connections = useSelector((store) => store.connection);
   const dispatch = useDispatch();
   const fetchConnections = async () => {
     try {
       const res = await axios.get(BASE_URL + "/user/connections", {
         withCredentials: true,
       });
-      //   console.log(res?.data?.data);
+      console.log(res?.data);
       dispatch(addConnection(res?.data?.data));
     } catch (error) {
       console.log(error);
@@ -23,16 +23,18 @@ const Connections = () => {
     fetchConnections();
   }, []);
 
-  if (!connectios) return;
+  if (!connections) return;
 
-  if (connectios.length === 0) return <h1>No Connections Found</h1>;
+  if (connections.length === 0) {
+    return <h1 className="text-center text-xl mt-5">No Connections Found</h1>;
+  }
 
   return (
     <div className="mt-5 w-1/2 m-auto">
       <h1 className="text-4xl text-center my-3 font-bold text-emerald-800">
         CONNECTIONS
       </h1>
-      {connectios.map((connection) => {
+      {connections.map((connection) => {
         const { firstName, lastName, age, gender, photoUrl, about, skills } =
           connection;
         return (
