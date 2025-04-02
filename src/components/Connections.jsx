@@ -34,8 +34,8 @@ const Connections = () => {
   }
 
   return (
-    <div className="mt-5 w-1/2 m-auto">
-      <h1 className="text-4xl text-center my-3 font-bold text-emerald-800">
+    <div className="mt-5 w-3/6 m-auto">
+      <h1 className="text-4xl text-center my-3 font-light text-emerald-800">
         CONNECTIONS
       </h1>
       {connections.map((connection) => {
@@ -47,11 +47,13 @@ const Connections = () => {
             className="bg-gray-100 flex items-center justify-around mb-5 p-3 rounded-xl"
           >
             <div>
-              <img
-                src={photoUrl}
-                alt="image"
-                className="w-20 h-20 rounded-full object-contain"
-              />
+              <div className="bg-gray-200 rounded-full ">
+                <img
+                  src={photoUrl}
+                  alt="image"
+                  className="w-40 h-40 rounded-full object-contain"
+                />
+              </div>
             </div>
             <div>
               <p>{firstName + " " + lastName}</p>

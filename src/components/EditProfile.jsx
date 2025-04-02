@@ -43,7 +43,7 @@ const EditProfile = ({ user }) => {
   return (
     <>
       <div className="flex items-center justify-center mt-10">
-        <div className="text-xl w-3/6 m-auto p-5 bg-gray-300  rounded-box">
+        <div className="text-xl w-3/6 m-auto p-5 bg-gray-300 rounded-box">
           <fieldset className="fieldset rounded-box">
             <legend className="fieldset-legend text-center font-light text-xl md:text-2xl lg:text-3xl">
               EDIT PROFILE
